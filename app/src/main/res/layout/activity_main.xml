@@ -10,13 +10,20 @@
     android:background="#FFFFFF"
     tools:context="com.example.mayank.linkpreview.MainActivity">
 
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/cardview_layout"
+        android:layout_above="@+id/urlLinkTv"
+        android:layout_marginBottom="15dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="URL Link"
+        android:hint="@string/url_link"
         android:gravity="center"
         android:textColor="@color/black"
+        android:inputType="textUri"
         android:id="@+id/urlLinkTv"
         android:layout_centerVertical="true"/>
 
