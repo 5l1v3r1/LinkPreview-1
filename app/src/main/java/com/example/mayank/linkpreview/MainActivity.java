@@ -6,8 +6,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethod;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -55,6 +60,20 @@ public class MainActivity extends Activity {
         mDescriptionTv = (TextView) cardview_layout.findViewById(R.id.description);
         mLogo = (ImageView) cardview_layout.findViewById(R.id.thumbnail);
 
+        //TODO: Modified code starts here.
+        mEditText.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if(actionId == EditorInfo.IME_ACTION_DONE) {
+                    //TODO: Add code for handling done event of the keyboard
+                    handled = true;
+                }
+                return handled;
+            }
+        });
+        //TODO: Modified Code Ends
+
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,11 +108,11 @@ public class MainActivity extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(MainActivity.this);
+            /*mProgressDialog = new ProgressDialog(MainActivity.this);
             mProgressDialog.setTitle("Please wait");
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            mProgressDialog.show();*/
         }
 
         @Override
@@ -113,7 +132,7 @@ public class MainActivity extends Activity {
         protected void onPostExecute(Void result) {
             // Set title into previewTitle
             previewTitle  = title;
-            mProgressDialog.dismiss();
+//            mProgressDialog.dismiss();
         }
     }
 
@@ -123,12 +142,12 @@ public class MainActivity extends Activity {
 
         @Override
         protected void onPreExecute() {
-            super.onPreExecute();
+            super.onPreExecute();/*
             mProgressDialog = new ProgressDialog(MainActivity.this);
             mProgressDialog.setTitle("Please wait");
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            mProgressDialog.show();*/
         }
 
         @Override
@@ -151,7 +170,7 @@ public class MainActivity extends Activity {
         protected void onPostExecute(Void result) {
             // Set desc into previewDescription
             previewDescription = desc;
-            mProgressDialog.dismiss();
+//            mProgressDialog.dismiss();
         }
     }
 
@@ -161,12 +180,12 @@ public class MainActivity extends Activity {
 
         @Override
         protected void onPreExecute() {
-            super.onPreExecute();
+            super.onPreExecute();/*
             mProgressDialog = new ProgressDialog(MainActivity.this);
             mProgressDialog.setTitle("Please wait");
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            mProgressDialog.show();*/
         }
 
         @Override
@@ -194,7 +213,7 @@ public class MainActivity extends Activity {
         protected void onPostExecute(Void result) {
             // Set downloaded image into previewLogo
             previewLogo = bitmap;
-            mProgressDialog.dismiss();
+//            mProgressDialog.dismiss();
         }
     }
 

@@ -25,6 +25,7 @@
         android:textColor="@color/black"
         android:inputType="textUri"
         android:id="@+id/urlLinkTv"
+        android:imeOptions="actionDone"
         android:layout_centerVertical="true"/>
 
     <Button
